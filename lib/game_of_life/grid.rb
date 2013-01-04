@@ -15,6 +15,10 @@ module GameOfLife
       live_locations.delete location
     end
 
+    def empty?
+      live_locations.empty?
+    end
+
     def has_living_cell_at?(location)
       live_locations.include? location
     end

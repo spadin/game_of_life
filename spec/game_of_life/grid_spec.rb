@@ -20,6 +20,15 @@ module GameOfLife
       grid.should_not have_living_cell_at(location)
     end
 
+    it "starts empty" do
+      grid.should be_empty
+    end
+
+    it "is not empty with a living cell" do
+      grid.bring_cell_to_life_at([123, 456])
+      grid.should_not be_empty
+    end
+
     context "#number_of_living_neighbors_for" do
       it "has no living neighbors" do
         grid.bring_cell_to_life_at([1,1])
