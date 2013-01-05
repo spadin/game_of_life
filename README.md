@@ -9,3 +9,5 @@ Running the specs:
 Playing the game:
 
     $ bin/play
+
+Quitting the game `ctrl-c`
