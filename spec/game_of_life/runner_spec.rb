@@ -5,6 +5,10 @@ module GameOfLife
     let(:outputter) { mock("outputter") }
     let(:empty_grid) { mock("grid", empty?: true) }
 
+    before do
+      Runner.any_instance.stub(:system)
+    end
+
     it "outputs the grid" do
       runner = Runner.new(empty_grid, outputter)
 
