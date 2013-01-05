@@ -3,4 +3,4 @@
 require_relative "../lib/game_of_life"
 
 grid = GameOfLife::GridLoader::JsonGrid.load("data/grid.json")
-GameOfLife::Runner.new(grid).start
+GameOfLife::Runner::ConsoleRunner.new(grid).start
