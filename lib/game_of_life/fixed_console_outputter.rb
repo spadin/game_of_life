@@ -2,7 +2,7 @@ module GameOfLife
   class FixedConsoleOutputter
     attr_accessor :output
 
-    def initialize(output)
+    def initialize(output = STDOUT)
       @output = output
     end
 

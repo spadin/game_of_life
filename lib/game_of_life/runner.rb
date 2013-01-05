@@ -2,7 +2,7 @@ module GameOfLife
   class Runner
     attr_accessor :outputter, :grid
 
-    def initialize(grid, outputter)
+    def initialize(grid, outputter = FixedConsoleOutputter.new)
       @grid, @outputter = grid, outputter
     end
 
