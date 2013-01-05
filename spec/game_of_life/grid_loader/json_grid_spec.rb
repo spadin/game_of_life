@@ -9,7 +9,7 @@ module GameOfLife
         grid.class.should be Grid
       end
 
-      it "loads a grid with 5 living cell" do
+      it "loads a grid with 5 living cells" do
         grid.has_living_cell_at?([0,2]).should be_true
         grid.has_living_cell_at?([1,3]).should be_true
         grid.has_living_cell_at?([2,1]).should be_true
