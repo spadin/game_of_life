@@ -1,5 +1,4 @@
-require 'game_of_life/fixed_console_outputter'
-require "game_of_life/grid"
+require "spec_helper"
 require "stringio"
 
 module GameOfLife

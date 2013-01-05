@@ -1,5 +1,4 @@
-require "game_of_life/grid_loader/json_grid"
-require "game_of_life/grid"
+require "spec_helper"
 
 module GameOfLife
   module GridLoader

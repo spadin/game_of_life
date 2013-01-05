@@ -1,4 +1,4 @@
-require "game_of_life/runner/console_runner"
+require "spec_helper"
 
 module GameOfLife
   module Runner

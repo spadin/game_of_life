@@ -1,4 +1,4 @@
-require "game_of_life/grid"
+require "spec_helper"
 
 module GameOfLife
   describe Grid do
