@@ -7,7 +7,6 @@ module GameOfLife
           system "clear"
           Kernel.exit!
         end
-
         super
       end
     end
