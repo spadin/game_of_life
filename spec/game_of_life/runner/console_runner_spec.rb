@@ -5,12 +5,11 @@ module GameOfLife
     describe ConsoleRunner do
       let(:outputter) { mock("outputter", :show_grid => nil) }
 
-      xit "shuts down on SIGINT" do
+      it "traps INT signal" do
+        GameOfLife::Runner::ConsoleRunner.any_instance.should_receive(:trap).with(:INT)
         grid = GameOfLife::GridLoader::JsonGrid.load("data/grid.json")
-        pid = Process.fork do
-          GameOfLife::Runner::ConsoleRunner.new(grid, outputter).start
-        end
-        Process.kill(:INT, pid)
+        runner = GameOfLife::Runner::ConsoleRunner.new(grid, outputter)
+        blk = lambda { raise Interrupt }
       end
     end
   end

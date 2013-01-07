@@ -2,12 +2,19 @@ module GameOfLife
   module Runner
     class ConsoleRunner < Base
       def initialize(grid, outputter = Outputter::FixedConsoleOutputter.new)
-        # Unsure how to test this.
-        Signal.trap :INT do
-          system "clear"
-          Kernel.exit!
-        end
+        add_int_trap
         super
+      end
+
+      def add_int_trap
+        trap :INT do
+          stop
+        end
+      end
+
+      def stop
+        system "clear"
+        exit!
       end
     end
   end
