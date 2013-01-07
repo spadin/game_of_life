@@ -18,7 +18,8 @@ module GameOfLife
       end
 
       it "shows the grid twice" do
-        grid = mock("original grid", empty?: false, grid_for_next_generation: empty_grid)
+        GridAdvancer.any_instance.stub(:grid_for_next_generation).and_return(empty_grid)
+        grid = mock("original grid", empty?: false)
         runner = Runner::Base.new(grid, outputter)
         runner.stub(:sleep)
         

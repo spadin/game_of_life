@@ -1,7 +1,7 @@
 module GameOfLife
   module Runner
     class Base
-      attr_accessor :outputter, :grid
+      attr_accessor :outputter, :grid, :grid_advancer
 
       def initialize(grid, outputter)
         @grid, @outputter = grid, outputter
@@ -11,7 +11,8 @@ module GameOfLife
         system "clear"
         outputter.show_grid grid
         until grid.empty?
-          self.grid = grid.grid_for_next_generation
+          grid_advancer = GameOfLife::GridAdvancer.new(grid)
+          self.grid = grid_advancer.grid_for_next_generation
           sleep(0.2)
           system "clear"
           outputter.show_grid grid
