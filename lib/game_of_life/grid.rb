@@ -9,16 +9,6 @@ module GameOfLife
       self.live_locations = Set.new
     end
 
-    def grid_for_next_generation
-      next_grid = Grid.new
-      potentially_living_cells.each do |potential_location|
-        if should_be_alive_in_next_generation?(potential_location)
-          next_grid.bring_cell_to_life_at(potential_location)
-        end
-      end
-      next_grid
-    end
-
     def bring_cell_to_life_at(location)
       live_locations.add location
     end
@@ -49,12 +39,6 @@ module GameOfLife
     end
 
     private
-
-    def should_be_alive_in_next_generation?(location)
-      number_of_living_neighbors = number_of_living_neighbors_for(location)
-      return true if number_of_living_neighbors == 3
-      return has_living_cell_at?(location) if number_of_living_neighbors == 2
-    end
 
     def neighbors_of(location)
       [-1, 0, 1].product([-1, 0, 1]).collect do |location_offset|
