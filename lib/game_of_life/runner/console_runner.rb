@@ -1,7 +1,7 @@
 module GameOfLife
   module Runner
     class ConsoleRunner < Base
-      def initialize(grid, outputter = FixedConsoleOutputter.new)
+      def initialize(grid, outputter = Outputter::FixedConsoleOutputter.new)
         # Unsure how to test this.
         Signal.trap :INT do
           system "clear"
