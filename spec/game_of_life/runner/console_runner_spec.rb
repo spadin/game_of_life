@@ -7,9 +7,11 @@ module GameOfLife
 
       it "traps INT signal" do
         GameOfLife::Runner::ConsoleRunner.any_instance.should_receive(:trap).with(:INT)
+
         grid = GameOfLife::GridLoader::JsonGrid.load("data/grid.json")
-        runner = GameOfLife::Runner::ConsoleRunner.new(grid, outputter)
-        blk = lambda { raise Interrupt }
+        
+        GameOfLife::Runner::ConsoleRunner.new(grid, outputter)
+        lambda { raise Interrupt }
       end
     end
   end
